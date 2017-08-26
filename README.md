@@ -10,56 +10,23 @@
 
 # Disclaimer / Warning!
 
-This repository/project is intended for **_Educational Purposes_ **ONLY**.
-It is not intended to be used for any purpose other than *learning*,
-so please do not use it for any other reason
-than to learn _about_ DOM scraping!!
-
-Please do not open issues complaining that the code is "Not Working" ... <br />
-GitHub have every right to change their UI as they see fit. <br />
-When they do change their UI the scraper will _inevitably_ "_break_"! <br />
-
-## Why?
-
-Our _initial reason_ for writing this set of scrapers was to satisfy the _curiosity_ / _question_:
-> _How_ can we ***discover*** which are the ***interesting people and projects
-on GitHub***  
-(_without **manually** checking *dozens* of GitHub profiles/repositories each day_) ?
-
-Our _second reason_ for scraping data from GitHub is so that we can show people a "*summary view*" of all their issues in our [Tudo](https://github.com/dwyl/tudo) project (which helps people track/manage/organise/prioritise their GitHub issues).
-See: https://github.com/dwyl/tudo/issues/51
-
-We needed a _simple_ way of systematically getting data from GitHub (_before people authenticate_) and scraping is the only way we could think of.
-
-We _tried_ using the [GitHub ***API***](https://developer.github.com/v3/)
-to get records from GitHub, but sadly,
-it has quite a few limitations (see: "_Issues with GitHub API_" section below) the biggest limitation being the [_rate-limiting_](https://developer.github.com/v3/#rate-limiting) on API requests.
-
-Thirdly we're building this project to [***scratch our own itch***](https://gettingreal.37signals.com/ch02_Whats_Your_Problem.php)  
-... scraping the _pages_ of GitHub has given us a _unique_ insight into the features of the platform which has leveled-up our skills.
-
-> Don't *you* want to know ***what's "Hot" right now on GitHub***...?
+This repository/project is a template for a FB, instagram, and twitter data scrapper
 
 
 ## What (*Problem* are we _trying_ to Solve)?
 
-Having a way of extracting the *essential* data from GitHub
+Having a way of extracting the *essential* data from FB, Instagram, and Twitter
 is a solution to a _surprisingly **wide array of problems**_, here are a few:
 
-+ ***Who*** are the up-and-comming people (_worth following_) on GitHub?
-+ ***Which*** are the ***interesting projects*** (*and why?!*)
-+ ***What*** is the average age of an issue for a project?
-+ Is a project's ***popularity growing*** or *plateaued*?
-+ Are there (_already_) any ***similar projects*** to what I'm trying to build? (_reduce duplication of effort which is rampant in Open Source!!_)
-+ How many projects get started but never finished?
-+ ***Will*** my **Pull Request** *ever* get *merged* or is the module maintainer *too busy* and did I just [***waste 3 hours***](https://twitter.com/nelsonic/status/621984170353524736)?
-+ _insert **your idea/problem** here_ ...
-+ **Associative Lists** e.g: People who starred `abc` also liked `xyz`
++ ***Who*** are the up-and-comming people (_worth following_) on social media?
++ ***Which*** are the ***interesting rental areas*** (*and why?!*)
++ ***What*** is the overall conditions of these areas?
++ Is a rental area's ***popularity growing*** or *plateaued*?
 
 
 # How?
 
-This module fetches (_public_) pages from GitHub, "[_scrapes_](https://en.wikipedia.org/wiki/Web_scraping)" the html to extract raw data and returns a JSON Object.
+This module fetches (_public_) pages from FB, instagram, and twitter. 
 
 # Usage
 
@@ -67,9 +34,6 @@ This module fetches (_public_) pages from GitHub, "[_scrapes_](https://en.wikipe
 
 install from npm and save to your `package.json`:
 
-```sh
-npm install github-scraper --save
-```
 
 ## Use it in your script!
 
@@ -83,24 +47,12 @@ gs(url, function(err, data) {
 
 ## Example URLs and Output
 
-### Profile Page
-
-User profile has the following format `https://github.com/{username}`  
-example: [https://github.com/**iteles**](https://github.com/iteles)
-
-```js
-var gs = require('github-scraper'); // require the module
-var url = 'alanshaw' // a random username (of someone you should follow!)
-gs(url, function(err, data) {
-  console.log(data); // or what ever you want to do with the data
-})
-```
 
 Sample output:
 
 ```js
-{ url: 'https://github.com/iteles',
-  img: 'https://avatars1.githubusercontent.com/u/4185328?v=3&s=460',
+{ url: 'https://facebook.com/iteles',
+  img: 'https://avatars1.fbusercontent.com/u/4185328?v=3&s=460',
   uid: 4185328,
   repos: 30,
   stars: 371,
